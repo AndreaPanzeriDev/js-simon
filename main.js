@@ -10,7 +10,7 @@ let arrayNumber = [];
 
 let guessNumber = [];
 
-let second = 5 * 1000; //change the five with the seconds that you want
+let second = 30 * 1000; //change the five with the seconds that you want
 
 
 //max number that you can display 
@@ -19,6 +19,8 @@ const max_n = 100;
 const guess_n = 5;
 //inizio game
 function Play(){
+    //clean the previus number
+    document.getElementById("numberOutput").innerHTML = ' ';
     randomNumber();
 
 }
@@ -26,12 +28,13 @@ function Play(){
 
 
 function randomNumber(){
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < guess_n; i++){
         let number = Math.round(Math.random() * max_n);
         if(arrayNumber.includes(number)){
             i--;
         }else{
             arrayNumber.push(number);
+            document.getElementById("numberOutput").append(number + ' ');
         }
     }
     console.log(arrayNumber);
@@ -40,5 +43,5 @@ function randomNumber(){
 
 
 function displayNumber(){
-    
+
 }
