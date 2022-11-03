@@ -37,6 +37,7 @@ header{
     border: 1px solid gold;
     border-radius: 10px;
     padding: 5px 25px 5px 25px;
+    align-self: center;
 }
 
 .play-button:hover{
