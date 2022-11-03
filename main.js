@@ -28,7 +28,9 @@ function Play(){
     //clean the previus number
     display_number.innerHTML = ' ';
     randomNumber();
-    setTimeout(cleanAsk, seconds);
+    setTimeout(clean, seconds);
+    //create another setTimout and put +1 second because the cicle for is to fast (FASTT BOYYYYYYYYYY)
+    setTimeout(Ask, seconds + 1000);
 
 }
 
@@ -53,14 +55,17 @@ function randomNumber(){
 }
 
 
-function cleanAsk(){
-    //clena
+function clean(){
     display_number.innerHTML = ' ';
-    //ask the number
-    for(let i=1; i<guess_n + 1; i++){
-        let input = parseInt(prompt("Inserisci il " + i + "° numero"))
+
+}
+
+
+function Ask(){
+    //ask
+    for(let i=0; i<guess_n; i++){
+        let input = parseInt(prompt("Inserisci il " + (i + 1) + "° numero"))
         guessNumber.push(input);
     }
     console.log(guessNumber);
-    
 }
