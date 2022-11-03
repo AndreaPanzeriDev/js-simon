@@ -89,10 +89,12 @@ function countDown() {
 
 function Check(){
     let count = 0;
+    //check position
     for(let i=0; i < guess_n; i++){
         if(arrayNumber[i] == guessNumber[i]){
             count++;
         }
     }
+    //print the result
     alert("Hai inserito " + count + " risposte giuste. \nI numeri da inserire erano: " +  arrayNumber + "\nMentre i numeri che hai inserito sono: " + guessNumber);
 }
