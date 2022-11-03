@@ -10,31 +10,42 @@ let arrayNumber = [];
 
 let guessNumber = [];
 
-let second = 30 * 1000; //change the five with the seconds that you want
+let seconds= 10 * 1000; //change the five with the seconds that you want
 
 
 //max number that you can display 
 const max_n = 100;
 //max number the player have to memorize
 const guess_n = 5;
+
+//diplay number
+let display_number = document.getElementById("numberOutput");
+
+
+
 //inizio game
 function Play(){
     //clean the previus number
-    document.getElementById("numberOutput").innerHTML = ' ';
+    display_number.innerHTML = ' ';
     randomNumber();
+    setTimeout(cleanAsk, seconds);
 
 }
 
 
 
 function randomNumber(){
+    //generate guess_n random number
     for(let i = 0; i < guess_n; i++){
         let number = Math.round(Math.random() * max_n);
+        //check if the number is already in the array
         if(arrayNumber.includes(number)){
             i--;
         }else{
+            //push the number into the array
             arrayNumber.push(number);
-            document.getElementById("numberOutput").append(number + ' ');
+            //display the number on the html page
+            display_number.append(number + ' ');
         }
     }
     console.log(arrayNumber);
@@ -42,6 +53,14 @@ function randomNumber(){
 }
 
 
-function displayNumber(){
-
+function cleanAsk(){
+    //clena
+    display_number.innerHTML = ' ';
+    //ask the number
+    for(let i=1; i<guess_n + 1; i++){
+        let input = parseInt(prompt("Inserisci il " + i + "° numero"))
+        guessNumber.push(input);
+    }
+    console.log(guessNumber);
+    
 }
